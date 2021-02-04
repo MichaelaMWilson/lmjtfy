@@ -7,15 +7,15 @@
   <script src="js/script.js"></script>
   </head>
   <body class="content">
-  <!-- Mouse path design by Louis Hoebregts https://css-tricks.com/simulating-mouse-movement/ -->
-  <svg id="mouse" fill="white" stroke="black"><path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z"></path></svg>
+  <!-- Mouse path design by Louis Hoebregts from https://css-tricks.com/simulating-mouse-movement/ -->
+  <svg id="mouse" class="hide" fill="white" stroke="black"><path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z"></path></svg>
     <div class="title spacer-bottom">
       <label>Let Me </label>
       <img src="resources/jira_logo.png"/>
       <label>Jira That For You</label>
     </div>
     <span>
-      <div id="domainSection" class="domain spacer-bottom">
+      <div id="domainSection" class="domain pad-bottom hide">
         <label>What is your Jira domain?</label>
         <div class="url">
 	      <span>jira.</span>
@@ -23,17 +23,17 @@
           <span>.com</span>
 	    </div>
       </div>
-      <div class="search-view spacer-bottom">
+      <div class="search-view pad-bottom">
         <i class="fas fa-search"></i>
-        <input placeholder="Enter your search term" type="text" id="searchQuery">
+        <input placeholder="Enter your search terms" type="text" id="searchQuery">
         <br />
         <br />
         <button id="linkBtn" type="button" onclick="generateLink()">Get link</button>
         <button id="searchBtn" type="button" onclick="redirectToJira()">Search</button>
       </div>
-      <label id="sarcasticLabel" class="sarcasticLabel">Now, was that so hard?</label>
-      <div id="linkDiv" class="link">
-      <label>Here's your LMJTFY link:</>
+      <label id="sarcasticLabel" class="hide">Now, was that so hard?</label>
+      <div id="linkDiv" class="link hide">
+      <span>Here's your LMJTFY link:</span>
       <input type="text" readonly="readonly" id="linkBox">
       </div>
     </span>
