@@ -24,7 +24,8 @@ function generateLink() {
     var urlEncodedQuery = encodeURIComponent(query);
 
     var domain = document.getElementById('domainName').value;
-    var searchLink = window.location.href + "?s=" + urlEncodedQuery + "&d=" + domain; 
+    var baseUrl = window.location.href.split("?")[0];
+    var searchLink = baseUrl + "?s=" + urlEncodedQuery + "&d=" + domain; 
 
     document.getElementById('linkBox').value = searchLink;
     document.getElementById('linkDiv').style.display = 'inline-block';
@@ -58,8 +59,9 @@ function typeWriter(text) {
 
 /* Focuses the search button and clicks it */
 function clickSearch() {
-    document.getElementById('searchBtn').focus();
-    document.getElementById('searchBtn').click();
+    var saveBtn = document.getElementById('searchBtn');
+    saveBtn.focus();
+    saveBtn.click();
 }
 
 /* Mouse position vars */
@@ -82,7 +84,7 @@ function moveMouse() {
 }
 
 /* Moves the mouse animation to the search button */
-function render (a) {
+function render() {
     var targetX = destX - x;
     var targetY = destY - y;
     
@@ -102,4 +104,3 @@ function render (a) {
     document.getElementById('mouse').style.transform = `translate(${x}px, ${y}px)`;
     requestAnimationFrame(render);
 }
-
