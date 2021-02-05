@@ -11,7 +11,8 @@ window.addEventListener('load', function() {
         document.getElementById('linkBtn').style.display = 'inline-block';
     } else {
         document.getElementById('searchBtn').style.display = 'inline-block';
-        simulateSearch();
+        /* Add a 250ms delay before simulating the search */
+        setTimeout(simulateSearch, 250);
     }
 })
 
