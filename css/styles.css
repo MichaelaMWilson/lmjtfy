@@ -28,7 +28,11 @@ label {
 }
 
 .hide {
-  display: none;
+  display: none !important; 
+}
+
+.block {
+  display: block;
 }
 
 .title label {
@@ -45,6 +49,7 @@ label {
   margin: auto;
   flex-wrap: wrap;
   justify-content: center;
+  display: block;
 }
 
 .domain label {
@@ -71,11 +76,32 @@ label {
 }
 
 .link {
-  width: 50%;
+  width: 100%;
+  display: inline-block;
 }
 
-.link input {
-  width: 100%;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.container input {
+  width: 45%;
+  margin: 5px;
+}
+
+.container button {
+  width: 5%;
+  max-width: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.fa-check {
+  color: #28a745;
 }
 
 svg {
@@ -88,7 +114,7 @@ button {
   background-color: #f9f9f9;
   border-radius: 6px;
   border: 1px solid #dcdcdc;
-  display: none;
+  display: inline-block;
   cursor: pointer;
   color: #666666;
   font-size: 15px;
