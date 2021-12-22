@@ -1,8 +1,8 @@
 /* Determine whether we need a link or already have one */
 const urlParams = new URLSearchParams(window.location.search);
-const domain = urlParams.get('d');
+const jiraUrl = urlParams.get('u');
 const searchText = urlParams.get('s');
-const editMode = (!domain || !searchText);
+const editMode = (!jiraUrl || !searchText);
 
 /* Once loaded, determine which elements need shown */
 window.addEventListener('load', function() {
@@ -24,9 +24,9 @@ function generateLink() {
     var query = document.getElementById('searchQuery').value;
     var urlEncodedQuery = encodeURIComponent(query);
 
-    var domain = document.getElementById('domainName').value;
+    var jUrl = document.getElementById('domainName').value;
     var baseUrl = window.location.href.split("?")[0];
-    var searchLink = baseUrl + "?s=" + urlEncodedQuery + "&d=" + domain; 
+    var searchLink = baseUrl + "?s=" + urlEncodedQuery + "&u=" + jUrl; 
 
     document.getElementById('linkBox').value = searchLink;
     document.getElementById('linkDiv').classList.remove('hide');
@@ -52,8 +52,14 @@ function copyToClipboard() {
 
 /* Redirects to given jira domain with given search query */
 function redirectToJira() {
-    var url = "http://jira." + domain + ".com/secure/QuickSearch.jspa?searchString=" + searchText;
-    window.location.replace(url);
+    if (!jiraUrl.startsWith("https://") && !jiraUrl.startsWith("http://")) {
+        url = "https://" + jiraUrl; /* Assume it's secure protocol */
+    }
+    else {
+        url = jiraUrl;
+    }
+    var searchUrl = url + "/secure/QuickSearch.jspa?searchString=" + searchText;
+    window.location.replace(searchUrl);
 }
 
 /* Gets the search text from the url and starts the search */

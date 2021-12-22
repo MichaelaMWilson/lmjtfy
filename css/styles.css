@@ -12,6 +12,7 @@ input {
   font-size: 14pt;
   border-radius: 6px;
   border: 1px solid #dcdcdc;
+  padding: 5px;
 }
 
 input:focus {
@@ -44,26 +45,15 @@ label {
   width: 50px;
 }
 
-.domain {
-  max-width: 750px;
-  margin: auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  display: block;
-}
-
 .domain label {
   font-size: 18pt;
   padding: 10px;
 }
 
-.domain input {
-  max-width: 200px;
-}
-
 .url {
   display: inline-block;
-  padding: 10px;
+  max-width: 700px;
+  width: 100%;
 }
 
 .search-view {
@@ -98,6 +88,7 @@ label {
   display: flex;
   justify-content: center;
   margin: 5px;
+  padding-top: 7px;
 }
 
 .fa-check {
